@@ -33,6 +33,8 @@ in builtins.trace "Constructing system ${name} at ${root}" {
     }
   ];
 
+  config.nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   options.core = {
     minimumStateVersion = lib.mkOption {
       description = "The minimum NixOS version supported by the Core module";
@@ -59,7 +61,7 @@ in builtins.trace "Constructing system ${name} at ${root}" {
     END_PROFILES = config.core.profilesLoaded;
     END_CLASS = class;
     END_SYSNAME = name;
-    END_PREFIX = flakePath;
+    END_PREFIX = /etc/nixos;
   };
 
   config.environment.systemPackages = [

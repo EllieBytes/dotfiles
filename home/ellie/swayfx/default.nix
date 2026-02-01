@@ -2,6 +2,7 @@
   imports = [
     ./autostart.nix
     ./keybindings.nix
+    ./theme.nix
   ];
 
   wayland.windowManager.sway = {

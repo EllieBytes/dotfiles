@@ -37,6 +37,10 @@
       ];
 
       flake = {
+        templates.default = {
+          path = ./template;
+        };
+
         hosts = {
           lenowo = lib.host.mkHost {
             system = "x86_64-linux";
@@ -48,7 +52,6 @@
               "bootloader/grub" 
               "services/tuigreet"
               "gaming/steam"
-              "tools/cybersecurity"
             ];
             resolvedModules = [ inputs.minegrub-theme.nixosModules.default ];
             homeUsers = [ "ellie" ];
@@ -57,6 +60,7 @@
               "programs/vicinae" 
             ];
             homeModulesResolved = [ inputs.zen-browser.homeModules.beta ];
+            allowUnfree = true;
           };
         };
 
