@@ -17,7 +17,7 @@
 
 
 let
-  urlTranslated = myLib.translateGitHubURL rootUrl;
+  urlTranslated = myLib.translateGitHubUrl rootUrl;
 
   end-rebuild-self = pkgs.writeShellScriptBin "end-rebuild-self" ''
     echo "Rebuilding from github upstream"
