@@ -12,10 +12,13 @@
 , allowUnfree
 , root
 , rootUrl
+, myLib
 , ... }:
 
 
 let
+  urlTranslated = myLib.translateGitHubURL rootUrl;
+
   end-rebuild-self = pkgs.writeShellScriptBin "end-rebuild-self" ''
     echo "Rebuilding from github upstream"
     sudo nixos-rebuild switch --flake $END_PREFIX#$END_SYSNAME
@@ -23,6 +26,19 @@ let
 
   end-rebuild-host = pkgs.writeShellScriptBin "end-rebuild-host" ''
     sudo nixos-rebuild switch --flake $END_PREFIX#$1
+  '';
+
+  end-cache-config = pkgs.writeShellScriptBin "end-cache-config" ''
+    sudo rm -fr /etc/nixos/end-cache
+    sudo git clone ${urlTranslated} /etc/nixos/end-cache
+  '';
+
+  end-rebuild-cached = pkgs.writeShellScriptBin "end-rebuild-self-cached" ''
+    sudo nixos-rebuild switch --flake /etc/nixos/end-cache#$END_SYSNAME
+  '';
+
+  end-rebuild-cachedhost = pkgs.writeShellScriptBin "end-rebuild-host-cached" ''
+    sudo nixos-rebuild switch --flake /etc/nixos/end-cache#$1
   '';
 in builtins.trace "Constructing system ${name} at ${root}" {
   config.assertions = [
@@ -67,7 +83,7 @@ in builtins.trace "Constructing system ${name} at ${root}" {
   };
 
   config.environment.systemPackages = [
-    end-rebuild-self end-rebuild-host
+    end-rebuild-self end-rebuild-host end-cache-config end-rebuild-cached end-rebuild-cachedhost
   ]; 
 
   config.networking.hostName = lib.mkDefault name;

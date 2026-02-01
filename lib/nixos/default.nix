@@ -15,4 +15,6 @@
       (name: body: builtins.trace "Registering profile ${name}" ({config.core.profilesLoaded = [ "${name}" ];}//body)) 
     else 
       (name: body: ({ config.core.profilesLoaded = [ "${name}" ]; }  // body)));
+
+  translateGitHubUrl = (url: ("https://github.com/" + (lib.strings.removePrefix "github:" url)));
 }

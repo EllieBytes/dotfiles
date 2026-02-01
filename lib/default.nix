@@ -25,7 +25,7 @@ let
   # Home manager utilities
   homeLib = import ./home {
     inherit inputs nixpkgs lib flakeRoot flake nixosLib;
-  }; 
+  };
 in {
   flake = flakeLib;
   host = hostLib;
