@@ -29,7 +29,7 @@
 
   system.stateVersion = "25.11";
 
-  networking.networkManager.dns = "none";
+  networking.networkmanager.dns = "none";
   networking.nameservers = [
     "1.1.1.1"
     "8.8.8.8"
