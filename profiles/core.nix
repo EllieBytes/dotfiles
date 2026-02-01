@@ -11,11 +11,13 @@
 , flakePath
 , allowUnfree
 , root
+, rootUrl
 , ... }:
 
 
 let
   end-rebuild-self = pkgs.writeShellScriptBin "end-rebuild-self" ''
+    echo "Rebuilding from github upstream"
     sudo nixos-rebuild switch --flake $END_PREFIX#$END_SYSNAME
   '';
 
@@ -61,7 +63,7 @@ in builtins.trace "Constructing system ${name} at ${root}" {
     END_PROFILES = config.core.profilesLoaded;
     END_CLASS = class;
     END_SYSNAME = name;
-    END_PREFIX = /etc/nixos;
+    END_PREFIX = rootUrl;
   };
 
   config.environment.systemPackages = [

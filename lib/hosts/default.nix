@@ -5,6 +5,7 @@
 , inputs
 , nixosLib
 , homeLib
+, rootUrl
 , ...}:
 
 let
@@ -85,7 +86,7 @@ let
     inherit system;
 
     specialArgs = {
-      inherit inputs allowUnfree stateVersion system class root name flake;
+      inherit inputs allowUnfree stateVersion system class root name flake rootUrl;
       flakePath = flakeRoot;
     }
     // (if useLibExtend then { inherit myLib; } else {})

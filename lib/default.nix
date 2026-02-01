@@ -3,6 +3,7 @@
 , lib
 , flakeRoot
 , flake
+, rootUrl ? "github:EllieBytes/dotfiles"
 , ... }:
 
 let
@@ -13,7 +14,7 @@ let
 
   # Host utilities
   hostLib = import ./hosts {
-    inherit inputs nixpkgs lib flakeRoot flake flakeLib nixosLib homeLib;
+    inherit inputs nixpkgs lib flakeRoot flake flakeLib nixosLib homeLib rootUrl;
   };
 
   # NixOS utilities
