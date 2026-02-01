@@ -1,0 +1,109 @@
+* {
+    font-family: DSEG14 Modern, 'Font Awesome 7';
+    font-style: oblique;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #cc241d;
+}
+
+button {
+    background: transparent;
+    color: #cc241d;
+}
+
+#workspaces button:hover {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #cc241d;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #cc241d;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    color: #fbf1c7;
+}
+
+#workspaces button.urgent {
+    color: #cc241d;
+}
+
+#mode {
+    background-color: transparent;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    background: transparent;
+    padding: 0 6px;
+    color: #cc241d;
+}
+
+#clock {
+    font-family: DSEG7 Modern;
+    font-weight: bold;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+#image {
+    margin-left: 3;
+    background: transparent;
+    padding-right: 5;
+}
+
+#battery {
+    color: #cc241d;
+}
+
+#battery.charging, #battery.plugged {
+    color: #b8bb26;
+}
+
+#battery.critical:not(.charging) {
+    color: #d65d0e;
+}
+
+#network.disconnected {
+    color: #d65d0e;
+}
+
+#wireplumber.muted {
+    color: #d65d0e;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#custom-weather {
+    font-family: DSEG Weather;
+    font-style: normal;
+}
