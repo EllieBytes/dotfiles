@@ -50,7 +50,7 @@ in
       Escape = "mode \"default\"";
     };
    
-    "mgmode" = {
+    "${mgmode}" = {
       l = "mode \"default\"; exec '${lock}/bin/swayfx-lock'";
       e = "exit";
       s = "mode \"default\"; exec 'systemctl suspend'";

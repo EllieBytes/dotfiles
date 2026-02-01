@@ -17,6 +17,11 @@
 
   security.pam.services.swaylock = lib.mkDefault {};
 
+  fonts.fontconfig.enable = true;
+  fonts.packages = with pkgs; [
+    dseg14-full dseg7-full nerd-fonts.fira-code
+  ];
+
   programs.sway = {
     enable = true;
     package = pkgs.swayfx;
