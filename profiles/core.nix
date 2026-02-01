@@ -21,11 +21,11 @@ let
 
   end-rebuild-self = pkgs.writeShellScriptBin "end-rebuild-self" ''
     echo "Rebuilding from github upstream"
-    sudo nixos-rebuild switch --rebuild-lock-file --option eval-cache false --flake $END_PREFIX#$END_SYSNAME
+    sudo nixos-rebuild switch --option eval-cache false --flake $END_PREFIX#$END_SYSNAME
   '';
 
   end-rebuild-host = pkgs.writeShellScriptBin "end-rebuild-host" ''
-    sudo nixos-rebuild switch --rebuild-lock-file --option eval-cache false --flake $END_PREFIX#$1
+    sudo nixos-rebuild switch --option eval-cache false --flake $END_PREFIX#$1
   '';
 
   end-cache-config = pkgs.writeShellScriptBin "end-cache-config" ''
@@ -34,11 +34,11 @@ let
   '';
 
   end-rebuild-cached = pkgs.writeShellScriptBin "end-rebuild-self-cached" ''
-    sudo nixos-rebuild switch --rebuild-lock-file --option eval-cache false --flake /etc/nixos/end-cache#$END_SYSNAME
+    sudo nixos-rebuild switch --option eval-cache false --flake /etc/nixos/end-cache#$END_SYSNAME
   '';
 
   end-rebuild-cachedhost = pkgs.writeShellScriptBin "end-rebuild-host-cached" ''
-    sudo nixos-rebuild switch --rebuild-lock-file --option eval-cache false --flake /etc/nixos/end-cache#$1
+    sudo nixos-rebuild switch --option eval-cache false --flake /etc/nixos/end-cache#$1
   '';
 in builtins.trace "Constructing system ${name} at ${root}" {
   config.assertions = [
