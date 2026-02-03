@@ -13,13 +13,14 @@
     boot-options-count = 5;
   };
 
-  services.tuigreet.command = "${pkgs.swayfx}/bin/swayfx";
+  services.tuigreet.command = "${pkgs.swayfx}/bin/sway";
 
   security.pam.services.swaylock = lib.mkDefault {};
 
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     dseg14-full dseg7-full nerd-fonts.fira-code
+    font-awesome_7
   ];
 
   programs.sway = {

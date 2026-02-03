@@ -33,7 +33,7 @@ in
     };
 
     extraConfig = ''
-      corner_radius 3
+      corner_radius 5
       blur enable
       blur_xray disable
       blur_radius 3

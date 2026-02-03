@@ -6,6 +6,9 @@
     ./swayfx/default.nix
     ./browser.nix
     ./git.nix
+    ./alacritty.nix
+    ./school.nix
+    ./social.nix
   ];
 
   home.packages = with pkgs; [

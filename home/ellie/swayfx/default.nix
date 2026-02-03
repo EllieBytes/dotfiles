@@ -10,5 +10,6 @@
     package = null;
     xwayland = true;
     systemd.enable = true;
+    config.bars = [];
   };
 }
