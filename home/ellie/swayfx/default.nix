@@ -3,6 +3,7 @@
     ./autostart.nix
     ./keybindings.nix
     ./theme.nix
+    ./xdg.nix
   ];
 
   wayland.windowManager.sway = {

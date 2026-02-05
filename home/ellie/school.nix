@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    obsidian libreoffice-fresh
+    obsidian libreoffice-fresh speedcrunch
   ];
 }

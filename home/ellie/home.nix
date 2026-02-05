@@ -9,6 +9,7 @@
     ./alacritty.nix
     ./school.nix
     ./social.nix
+    ./ranger.nix
   ];
 
   home.packages = with pkgs; [

@@ -50,7 +50,6 @@
             stateVersion = "25.11";
             modules = [ 
               "bootloader/grub" 
-              "services/tuigreet"
               "gaming/steam"
             ];
             resolvedModules = [ inputs.minegrub-theme.nixosModules.default ];

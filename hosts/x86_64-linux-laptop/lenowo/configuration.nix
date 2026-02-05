@@ -13,7 +13,13 @@
     boot-options-count = 5;
   };
 
-  services.tuigreet.command = "${pkgs.swayfx}/bin/sway";
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      user = "greeter";
+      command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-session --asterisks --user-menu";
+    };
+  };
 
   security.pam.services.swaylock = lib.mkDefault {};
 
