@@ -49,8 +49,7 @@
             profiles = [ "base" "laptop" ];
             stateVersion = "25.11";
             modules = [ 
-              "bootloader/grub" 
-              "gaming/steam"
+              "bootloader/grub"
             ];
             resolvedModules = [ inputs.minegrub-theme.nixosModules.default ];
             homeUsers = [ "ellie" ];
