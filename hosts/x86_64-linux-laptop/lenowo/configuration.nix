@@ -4,6 +4,7 @@
   users.users.ellie = {
     isNormalUser = true;
     description = "Ellie Johnston";
+    initialPassword = "1";
     extraGroups = [ "wheel" "libvirtd" "video" "nix" ];
   };
 
